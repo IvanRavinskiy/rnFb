@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1000664849388",
+    "project_id": "earnest-sandbox-348408",
+    "storage_bucket": "earnest-sandbox-348408.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1000664849388:android:cfdd2300a3a98b28487ec9",
+        "android_client_info": {
+          "package_name": "com.rnfacebookfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1000664849388-ou4ffd0m04murrmu3im91tbd6km8ibg6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rnfacebookfirebase",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "1000664849388-hjlfirisvgc9k7habs4idc5es11fr10d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACEu1F0b2-ail1Jx3AYl5qnugf3RgWKOI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1000664849388-hjlfirisvgc9k7habs4idc5es11fr10d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
