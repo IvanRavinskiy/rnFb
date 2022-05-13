@@ -6,12 +6,10 @@ import {LoginStyles} from './styles';
 import {LoginButton} from 'react-native-fbsdk-next';
 
 export const LoginScreen = () => {
-  // const [] = useState(false);
-
   const dispatch = useDispatch();
 
-  const onFacebookButtonPress = async () => {
-    console.log('click');
+  const onFacebookButtonLogin = () => {
+    console.log('login click');
     dispatch(isAuthProfile());
   };
 
@@ -19,7 +17,7 @@ export const LoginScreen = () => {
     <View style={LoginStyles.main}>
       <Text>init</Text>
       <LoginButton
-        onLoginFinished={onFacebookButtonPress}
+        onLoginFinished={onFacebookButtonLogin}
         onLogoutFinished={() => console.log('logout.')}
       />
     </View>
