@@ -4,11 +4,13 @@ import {useDispatch, useSelector} from 'react-redux';
 import {isAuthLogin, isAuthLogout} from '../../reducers/fbSlice';
 import {LoginStyles} from './styles';
 import {LoginButton} from 'react-native-fbsdk-next';
-import {selectAvaImg} from '../../selectors';
+import {selectAvaImg, selectIsAuthSuccess} from '../../selectors';
 
 export const LoginScreen = () => {
   const dispatch = useDispatch();
   const avaImg = useSelector(selectAvaImg);
+  const isAuthSuccess = useSelector(selectIsAuthSuccess);
+  console.log('!!!!!!!!!!!!! isAuthSuccess ', isAuthSuccess);
 
   const onFacebookButtonLogin = () => {
     console.log('login click');

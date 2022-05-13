@@ -9,7 +9,7 @@ export function* FbLoginSagaWorker() {
     yield call(AccessToken.getCurrentAccessToken);
     const profile: FBProfile = yield call(Profile.getCurrentProfile);
     yield put(setAvaImg(profile.imageURL));
-    yield put(isAuthProfileSuccess());
+    yield put(isAuthProfileSuccess(true));
   } catch (e) {
     yield call(console.log, `FbLoginSagaWorker error: ${e}`);
   }

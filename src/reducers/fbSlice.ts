@@ -22,9 +22,11 @@ export const fbSlice = createSlice({
     },
     isAuthLogout: state => {
       state.isAuth = false;
+      state.avaImg =
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTesnspzmYPwsR6SMr-G6x-RYmtjwc_21C_6Q&usqp=CAU';
     },
-    isAuthProfileSuccess: state => {
-      state.isAuthSuccess = true;
+    isAuthProfileSuccess: (state, action: PayloadAction<any>) => {
+      state.isAuthSuccess = action.payload;
     },
     setAvaImg: (state, action: PayloadAction<any>) => {
       state.avaImg = action.payload;
