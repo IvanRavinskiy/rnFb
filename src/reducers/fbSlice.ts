@@ -9,7 +9,8 @@ export type FbAuthType = {
 const initialState: FbAuthType = {
   isAuth: false,
   isAuthSuccess: false,
-  avaImg: '',
+  avaImg:
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTesnspzmYPwsR6SMr-G6x-RYmtjwc_21C_6Q&usqp=CAU',
 };
 
 export const fbSlice = createSlice({

@@ -6,4 +6,9 @@ export const LoginStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  avatarImage: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+  },
 });
