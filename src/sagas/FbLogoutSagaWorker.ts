@@ -4,7 +4,6 @@ import auth from '@react-native-firebase/auth';
 
 export function* FbLogoutSagaWorker() {
   try {
-    yield call(console.log, 'FbLogoutSagaWorker start');
     const signOut = () => {
       return auth().signOut();
     };

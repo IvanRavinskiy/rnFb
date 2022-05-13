@@ -13,12 +13,10 @@ export const LoginScreen = () => {
   console.log('!!!!!!!!!!!!! isAuthSuccess ', isAuthSuccess);
 
   const onFacebookButtonLogin = () => {
-    console.log('login click');
     dispatch(isAuthLogin());
   };
 
   const onFacebookButtonLogout = () => {
-    console.log('click logout.');
     dispatch(isAuthLogout());
   };
 
