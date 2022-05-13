@@ -1,7 +1,7 @@
 import {takeLatest} from 'redux-saga/effects';
 import {SagaPattern} from '../enums';
-import {FbSagaWorker} from './FbSagaWorker';
+import {FbLoginSagaWorker} from './FbLoginSagaWorker';
 
 export function* FbRootSaga() {
-  yield takeLatest(SagaPattern.fb, FbSagaWorker);
+  yield takeLatest(SagaPattern.fb, FbLoginSagaWorker);
 }
