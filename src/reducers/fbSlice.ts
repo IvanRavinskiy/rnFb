@@ -17,8 +17,11 @@ export const fbSlice = createSlice({
   name: 'fb',
   initialState,
   reducers: {
-    isAuthProfile: state => {
+    isAuthLogin: state => {
       state.isAuth = true;
+    },
+    isAuthLogout: state => {
+      state.isAuth = false;
     },
     isAuthProfileSuccess: state => {
       state.isAuthSuccess = true;
@@ -29,4 +32,5 @@ export const fbSlice = createSlice({
   },
 });
 
-export const {setAvaImg, isAuthProfile, isAuthProfileSuccess} = fbSlice.actions;
+export const {setAvaImg, isAuthLogin, isAuthProfileSuccess, isAuthLogout} =
+  fbSlice.actions;

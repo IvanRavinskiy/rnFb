@@ -11,6 +11,6 @@ export function* FbLoginSagaWorker() {
     yield put(setAvaImg(profile.imageURL));
     yield put(isAuthProfileSuccess());
   } catch (e) {
-    yield call(console.log, `FbSagaWorker error: ${e}`);
+    yield call(console.log, `FbLoginSagaWorker error: ${e}`);
   }
 }
