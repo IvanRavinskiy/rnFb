@@ -1,7 +1,8 @@
-import {Button, StyleSheet, Text, View} from 'react-native';
+import {Button, Text, View} from 'react-native';
 import React from 'react';
 import {useDispatch} from 'react-redux';
-import {isAuthProfile} from '../reducers/fbSlice';
+import {isAuthProfile} from '../../reducers/fbSlice';
+import {LoginStyles} from './styles';
 
 export const LoginScreen = () => {
   // const [] = useState(false);
@@ -12,7 +13,7 @@ export const LoginScreen = () => {
     dispatch(isAuthProfile());
   };
   return (
-    <View style={styles.main}>
+    <View style={LoginStyles.main}>
       <Text>init</Text>
       <Button
         title="Facebook Sign-In"
@@ -21,11 +22,3 @@ export const LoginScreen = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  main: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
