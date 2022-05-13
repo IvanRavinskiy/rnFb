@@ -3,18 +3,19 @@ import {AccessToken, Profile} from 'react-native-fbsdk-next';
 import {isAuthProfileSuccess, setAvaImg} from '../reducers/fbSlice';
 import FBProfile from 'react-native-fbsdk-next/lib/typescript/src/FBProfile';
 import FBAccessToken from 'react-native-fbsdk-next/lib/typescript/src/FBAccessToken';
-import auth from '@react-native-firebase/auth';
+import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
+import AuthCredential = FirebaseAuthTypes.AuthCredential;
 
-export function* FbLoginSagaWorker(): any {
+export function* FbLoginSagaWorker() {
   try {
     yield call(AccessToken.refreshCurrentAccessTokenAsync);
     const data: FBAccessToken = yield call(AccessToken.getCurrentAccessToken);
     const profile: FBProfile = yield call(Profile.getCurrentProfile);
-    const facebookCredential: any = yield call(
+    const facebookCredential: AuthCredential = yield call(
       auth.FacebookAuthProvider.credential,
       data.accessToken,
     );
-    const signInWithCredential = (credential: any) => {
+    const signInWithCredential = (credential: AuthCredential) => {
       return auth().signInWithCredential(credential);
     };
     yield call(signInWithCredential, facebookCredential);
