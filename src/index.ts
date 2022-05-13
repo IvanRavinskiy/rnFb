@@ -5,7 +5,7 @@ import {fbSlice} from './reducers';
 const sagaMiddleware = createSagaMiddleware();
 
 const rootReducer = combineReducers({
-  app: fbSlice.reducer,
+  login: fbSlice.reducer,
 });
 
 export const store = configureStore({
