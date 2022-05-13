@@ -22,10 +22,10 @@ export const fbSlice = createSlice({
     isAuthProfileSuccess: state => {
       state.isAuthSuccess = true;
     },
-    setAvaImg: (state, action: PayloadAction<string>) => {
+    setAvaImg: (state, action: PayloadAction<any>) => {
       state.avaImg = action.payload;
     },
   },
 });
 
-export const {setAvaImg, isAuthProfile} = fbSlice.actions;
+export const {setAvaImg, isAuthProfile, isAuthProfileSuccess} = fbSlice.actions;
