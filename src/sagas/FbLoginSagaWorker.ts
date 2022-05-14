@@ -4,7 +4,8 @@ import {isAuthProfileSuccess, setAvaImg} from '../reducers/fbSlice';
 import FBProfile from 'react-native-fbsdk-next/lib/typescript/src/FBProfile';
 import FBAccessToken from 'react-native-fbsdk-next/lib/typescript/src/FBAccessToken';
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
-import AuthCredential = FirebaseAuthTypes.AuthCredential;
+
+type AuthCredential = FirebaseAuthTypes.AuthCredential;
 
 export function* FbLoginSagaWorker() {
   try {
