@@ -11,4 +11,8 @@ export const LoginStyles = StyleSheet.create({
     height: 150,
     borderRadius: 75,
   },
+  btn: {
+    width: 198,
+    height: 48,
+  },
 });

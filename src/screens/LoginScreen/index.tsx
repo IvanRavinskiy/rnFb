@@ -5,6 +5,7 @@ import {isAuthLogin, isAuthLogout} from '../../reducers/fbSlice';
 import {LoginStyles} from './styles';
 import {LoginButton} from 'react-native-fbsdk-next';
 import {selectAvaImg, selectIsAuthSuccess} from '../../selectors';
+import {GoogleSigninButton} from '@react-native-google-signin/google-signin';
 
 export const LoginScreen = () => {
   const dispatch = useDispatch();
@@ -20,12 +21,23 @@ export const LoginScreen = () => {
     dispatch(isAuthLogout());
   };
 
+  const onGoogleButtonPress = async () => {
+    console.log('google login');
+  };
+
   return (
     <View style={LoginStyles.main}>
       <Image source={{uri: avaImg}} style={LoginStyles.avatarImage} />
       <LoginButton
+        style={LoginStyles.btn}
         onLoginFinished={onFacebookButtonLogin}
         onLogoutFinished={onFacebookButtonLogout}
+      />
+      <GoogleSigninButton
+        style={LoginStyles.btn}
+        size={GoogleSigninButton.Size.Standard}
+        color={GoogleSigninButton.Color.Dark}
+        onPress={onGoogleButtonPress}
       />
     </View>
   );
