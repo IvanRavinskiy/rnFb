@@ -1,28 +1,40 @@
-import {Image, View} from 'react-native';
-import React from 'react';
+import {Button, Image, View} from 'react-native';
+import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {isAuthLogin, isAuthLogout} from '../../reducers/fbSlice';
 import {LoginStyles} from './styles';
 import {LoginButton} from 'react-native-fbsdk-next';
 import {selectAvaImg, selectIsAuthSuccess} from '../../selectors';
 import {GoogleSigninButton} from '@react-native-google-signin/google-signin';
+import {
+  isAuthFbLogin,
+  isAuthFbLogout,
+  isAuthGoogleLogin,
+  isAuthGoogleLogout,
+} from '../../reducers/fbSlice';
 
 export const LoginScreen = () => {
+  const [auth, setAuth] = useState(false);
+
   const dispatch = useDispatch();
   const avaImg = useSelector(selectAvaImg);
   const isAuthSuccess = useSelector(selectIsAuthSuccess);
   console.log('!!!!!!!!!!!!! isAuthSuccess ', isAuthSuccess);
 
   const onFacebookButtonLogin = () => {
-    dispatch(isAuthLogin());
+    dispatch(isAuthFbLogin());
   };
 
   const onFacebookButtonLogout = () => {
-    dispatch(isAuthLogout());
+    dispatch(isAuthFbLogout());
   };
 
-  const onGoogleButtonPress = async () => {
-    console.log('google login');
+  const onGoogleButtonLogin = () => {
+    dispatch(isAuthGoogleLogin());
+    setAuth(true);
+  };
+  const onGoogleButtonLogout = () => {
+    dispatch(isAuthGoogleLogout());
+    setAuth(false);
   };
 
   return (
@@ -33,12 +45,18 @@ export const LoginScreen = () => {
         onLoginFinished={onFacebookButtonLogin}
         onLogoutFinished={onFacebookButtonLogout}
       />
-      <GoogleSigninButton
-        style={LoginStyles.btn}
-        size={GoogleSigninButton.Size.Standard}
-        color={GoogleSigninButton.Color.Dark}
-        onPress={onGoogleButtonPress}
-      />
+      {!auth && (
+        <GoogleSigninButton
+          style={LoginStyles.btn}
+          size={GoogleSigninButton.Size.Standard}
+          color={GoogleSigninButton.Color.Dark}
+          onPress={onGoogleButtonLogin}
+        />
+      )}
+
+      {auth && (
+        <Button title={'Logout Google'} onPress={onGoogleButtonLogout} />
+      )}
     </View>
   );
 };
