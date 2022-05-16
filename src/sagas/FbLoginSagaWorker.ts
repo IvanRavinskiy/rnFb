@@ -8,18 +8,17 @@ import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 type AuthCredential = FirebaseAuthTypes.AuthCredential;
 
 export function* FbLoginSagaWorker() {
+  const signInWithCredential = (credential: AuthCredential) => {
+    return auth().signInWithCredential(credential);
+  };
   try {
-    yield call(AccessToken.refreshCurrentAccessTokenAsync);
     const data: FBAccessToken = yield call(AccessToken.getCurrentAccessToken);
-    const profile: FBProfile = yield call(Profile.getCurrentProfile);
     const facebookCredential: AuthCredential = yield call(
       auth.FacebookAuthProvider.credential,
       data.accessToken,
     );
-    const signInWithCredential = (credential: AuthCredential) => {
-      return auth().signInWithCredential(credential);
-    };
     yield call(signInWithCredential, facebookCredential);
+    const profile: FBProfile = yield call(Profile.getCurrentProfile);
     yield put(setAvaImg(profile.imageURL));
     yield put(isAuthProfileSuccess(true));
   } catch (e) {
