@@ -1,4 +1,6 @@
 export enum SagaPattern {
-  fbLogin = 'fb/isAuthLogin',
-  fbLogout = 'fb/isAuthLogout',
+  fbLogin = 'fb/isAuthFbLogin',
+  fbLogout = 'fb/isAuthFbLogout',
+  googleLogin = 'fb/isAuthGoogleLogin',
+  googleLogout = 'fb/isAuthGoogleLogout',
 }
