@@ -53,7 +53,6 @@ export const LoginScreen = () => {
           onPress={onGoogleButtonLogin}
         />
       )}
-
       {auth && (
         <Button title={'Logout Google'} onPress={onGoogleButtonLogout} />
       )}
